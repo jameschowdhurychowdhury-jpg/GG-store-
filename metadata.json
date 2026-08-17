@@ -1,0 +1,6 @@
+{
+  "name": "GG-store",
+  "description": "India's fastest and trusted gaming top-up marketplace for Diamonds, UC, CP, Gems, and Gift Cards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

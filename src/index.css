@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --accent-gold: #F59E0B;
+    --accent-gold-hover: #D97706;
+    --accent-gold-light: #FEF3C7;
+    --accent-gold-dark: #B45309;
+    --bg-main: #0B0E14;
+    --bg-surface: #111622;
+    --bg-surface-light: #1A2234;
+    --bg-card: #151C2C;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+    --border-color: #242E42;
+    --border-gold: rgba(245, 158, 11, 0.4);
+    --success: #10B981;
+    --danger: #EF4444;
+  }
+
+  .light-theme {
+    --bg-main: #F8FAFC;
+    --bg-surface: #FFFFFF;
+    --bg-surface-light: #F1F5F9;
+    --bg-card: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --border-color: #E2E8F0;
+    --border-gold: rgba(217, 119, 6, 0.4);
+  }
+
+  /* TV / High Contrast Theater Mode */
+  .tv-mode {
+    font-size: 110%;
+    --bg-main: #06080D;
+    --bg-surface: #0E131E;
+    --bg-surface-light: #182236;
+    --border-color: #2E3D59;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Custom Gold Glows & Utilities */
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #FDE047 0%, #F59E0B 50%, #D97706 100%);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FDE047 30%, #F59E0B 70%, #B45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+}
+
+.gold-glow-sm {
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+.gold-border-glow {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0E14;
+}
+::-webkit-scrollbar-thumb {
+  background: #242E42;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F59E0B;
+}
+
+/* Animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+/* Touch Friendly Targets & Input Zoom Prevention on Mobile */
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+input, select, textarea {
+  font-size: 16px; /* Prevents auto-zoom on iOS safari / mobile Chrome */
+}
+
+@media (min-width: 640px) {
+  input, select, textarea {
+    font-size: 14px;
+  }
+}
+
+/* Responsive Content Containers for Ultra-Wide / TV Panels */
+.responsive-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .responsive-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 80rem; /* 1280px */
+  }
+}
+
+@media (min-width: 1536px) {
+  .responsive-container {
+    max-width: 96rem; /* 1536px - Big Laptops & Monitors */
+  }
+}
+
+@media (min-width: 1920px) {
+  .responsive-container {
+    max-width: 115rem; /* 1840px - 1080p/4K TVs & Smart Panels */
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .responsive-container {
+    max-width: 140rem; /* 2240px - Giant 4K/8K TVs & Conference Displays */
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
